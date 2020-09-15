@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="userViewModel"
+            type="com.gqq.jetpackdemo.mvvm_databinding.viewmodel.UserViewModel" />
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addTextChangedListener="@{userViewModel.nameInputWatcher}"
+            android:hint="请输入账号"
+            android:text="@{userViewModel.userInfo.name}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addTextChangedListener="@{userViewModel.pwdInputWatcher}"
+            android:hint="请输入密码"
+            android:text="@{userViewModel.userInfo.pwd}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{userViewModel.onClickConfirm}"
+            android:text="确认"/>
+
+    </LinearLayout>
+
+</layout>
