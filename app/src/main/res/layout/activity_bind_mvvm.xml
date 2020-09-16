@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- databinding 的编码规范 -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 定义该View需要绑定的数据来源 -->
     <data>
         <variable
-            name="person"
-            type="com.gqq.jetpackdemo.mvvm_databinding.model.Person" />
+            name="userViewModel"
+            type="com.gqq.jetpackdemo.mvvm_databinding.viewmodel.UserViewModel" />
     </data>
 
-    <!-- View的常规编码 -->
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,14 +15,22 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:addTextChangedListener="@{userViewModel.nameInputWatcher}"
             android:hint="请输入账号"
-            android:text="@={person.name}" />
+            android:text="@{userViewModel.userInfo.name}" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:addTextChangedListener="@{userViewModel.pwdInputWatcher}"
             android:hint="请输入密码"
-            android:text="@={person.pwd}" />
+            android:text="@{userViewModel.userInfo.pwd}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{userViewModel.onClickConfirm}"
+            android:text="确认"/>
 
     </LinearLayout>
 
