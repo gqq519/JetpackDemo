@@ -9,18 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".livedata.LiveActivity">
+        <activity android:name=".viewmodel.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".livedata.LiveActivity"></activity>
         <activity android:name=".lifecycle.RegisterActivity" />
-        <activity android:name=".lifecycle.LoginActivity">
+        <activity android:name=".lifecycle.LoginActivity"></activity>
+        <activity android:name=".mvvm_databinding.MvvmBindActivity" />
+        <activity android:name=".mvvm_databinding.BindActivity">
+
         </activity>
-        <activity android:name=".mvvm_databinding.MvvmBindActivity"></activity>
-        <activity android:name=".mvvm_databinding.BindActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".livedata.Live2Activity" />
     </application>
