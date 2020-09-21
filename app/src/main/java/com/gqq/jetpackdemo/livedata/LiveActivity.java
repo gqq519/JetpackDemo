@@ -3,6 +3,7 @@ package com.gqq.jetpackdemo.livedata;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.gqq.jetpackdemo.R;
  * 使用：
  * 1、创建LiveData对象，是一种任何数据的封装容器，通常在ViewModel中存储，通过get方法获取
  * 2、观察LivaData对象
+ *
  */
 public class LiveActivity extends AppCompatActivity {
 
@@ -31,7 +33,11 @@ public class LiveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
 
-        // 监听：params: 监听持有者、监听
+        /**
+         * 监听：
+         * 1、通过observe监听，传入LifecycleOwner，使owner订阅observe
+         * 2、observeForever(Observer) 方法来注册未关联 LifecycleOwner 对象的观察者。在这种情况下，观察者会被视为始终处于活跃状态，因此它始终会收到关于修改的通知。您可以通过调用 removeObserver(Observer) 方法来移除这些观察者。
+         */
         LiveViewModel.getInstances().getLiveDataName().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
@@ -41,6 +47,21 @@ public class LiveActivity extends AppCompatActivity {
     }
 
     public void clickUpdate(View view) {
+        /**
+         * 更新数据：LivaData更新数据有两种方式
+         * 1、setValue() 在主线程中调用
+         * 2、postValue() 子线程中调用
+         */
+
         LiveViewModel.getInstances().getLiveDataName().setValue("更新后的数据");
+
+        /**
+         * LivaData 的扩展：
+         * 1、观察者的生命周期绑定
+         * 2、数据的转换
+         */
+
+        startActivity(new Intent(this, Live2Activity.class));
+
     }
 }
