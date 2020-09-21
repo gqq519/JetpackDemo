@@ -1,2 +1,4 @@
+include ':demo_kotlin'
+include ':demo_java'
 include ':app'
 rootProject.name='JetpackDemo'

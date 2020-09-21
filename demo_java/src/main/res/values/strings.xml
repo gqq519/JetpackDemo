@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sunflower</string>
+    <string name="main_tab_mine">我的花园</string>
+    <string name="main_tab_all">植物目录</string>
+    <string name="empty_garden">我花园里的花呢</string>
+    <string name="add_plant">去摘一朵</string>
+</resources>
