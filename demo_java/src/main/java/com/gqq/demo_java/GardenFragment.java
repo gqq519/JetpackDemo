@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.gqq.demo_java.databinding.FragmentGardenBinding;
+
 /**
  * Created by gqq on 2020/9/21.
  */
@@ -24,11 +26,7 @@ public class GardenFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        FragmentGardenBinding binding = FragmentGardenBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 }
