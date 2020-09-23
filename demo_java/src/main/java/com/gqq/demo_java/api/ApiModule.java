@@ -13,7 +13,7 @@ public class ApiModule {
 
     private static final String BASE_URL = "https://api.unsplash.com/";
 
-    public UnSplashService create() {
+    private static Retrofit buildRetrofit() {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -27,6 +27,10 @@ public class ApiModule {
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        return retrofit.create(UnSplashService.class);
+        return retrofit;
+    }
+
+    public static UnSplashService createUnSplashService() {
+        return buildRetrofit().create(UnSplashService.class);
     }
 }

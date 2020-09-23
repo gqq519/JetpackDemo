@@ -1,8 +1,8 @@
 package com.gqq.demo_java.data;
 
-import androidx.paging.PagedList;
-import androidx.paging.PagingData;
+import androidx.paging.PagingSource;
 
+import com.gqq.demo_java.api.ApiModule;
 import com.gqq.demo_java.api.UnSplashService;
 
 /**
@@ -12,11 +12,11 @@ public class UnSplashRepository {
 
     private UnSplashService unSplashService;
 
-    public UnSplashRepository(UnSplashService unSplashService) {
-        this.unSplashService = unSplashService;
+    public UnSplashRepository() {
+        this.unSplashService = ApiModule.createUnSplashService();
     }
 
-    public void getSearchResultStream() {
-
+    public UnSplashSearchResponse getSearchResultStream(String query) {
+        return null;
     }
 }
