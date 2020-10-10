@@ -1,12 +1,18 @@
-package com.gqq.demo_kotlin
+package com.gqq.demo_kotlin.coroutine_demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.gqq.demo_kotlin.R
 import kotlinx.android.synthetic.main.activity_practice1.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
+/**
+ * 扔物线协程讲解视频的实例Demo
+ *
+ */
 
 class PracticeActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
